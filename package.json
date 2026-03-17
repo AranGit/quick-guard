@@ -1,6 +1,6 @@
 {
   "name": "quick-guard-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight and type-safe Role-Based Access Control (RBAC) library for React and Next.js.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
