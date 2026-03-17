@@ -1,11 +1,11 @@
-# Quick-Guard
+# Quick-Guard-UI
 
 **The fastest way to implement Role-Based Access Control (RBAC) in your React & Next.js applications.**
 
-[![npm version](https://img.shields.io/npm/v/quick-guard.svg)](https://www.npmjs.com/package/quick-guard)
-[![license](https://img.shields.io/npm/l/quick-guard.svg)](https://github.com/your-username/quick-guard/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/quick-guard-ui.svg)](https://www.npmjs.com/package/quick-guard-ui)
+[![license](https://img.shields.io/npm/l/quick-guard-ui.svg)](https://github.com/your-username/quick-guard-ui/blob/main/LICENSE)
 
-`quick-guard` เป็น Library ขนาดเล็กที่ช่วยจัดการสิทธิ์การเข้าถึง Component (RBAC) ได้อย่างง่ายดาย รองรับทั้ง Client-side rendering และมี Type-safe ที่แข็งแกร่งสำหรับ TypeScript
+`quick-guard-ui` เป็น Library ขนาดเล็กที่ช่วยจัดการสิทธิ์การเข้าถึง Component (RBAC) ได้อย่างง่ายดาย รองรับทั้ง Client-side rendering และมี Type-safe ที่แข็งแกร่งสำหรับ TypeScript
 
 ---
 
@@ -21,7 +21,7 @@
 ## Installation
 
 ```bash
-npm install quick-guard
+npm install quick-guard-ui
 # หรือ
-yarn add quick-guard
+yarn add quick-guard-ui
 ```
