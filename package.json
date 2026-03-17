@@ -12,7 +12,7 @@
   },
   "keywords": [],
   "author": "AranGit",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@chromatic-com/storybook": "^5.0.1",
     "@storybook/addon-a11y": "^10.2.19",
