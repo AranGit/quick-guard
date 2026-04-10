@@ -5,7 +5,7 @@ import { QuickGuardProvider } from "../components/QuickGuardProvider";
 const meta: Meta<typeof Guard> = {
   title: "Security/GuardWithProvider",
   component: Guard,
-  // ใช้ Decorator เพื่อหุ้ม Provider ให้กับทุก Story ในไฟล์นี้
+  // Use a Decorator to wrap every Story in this file with the Provider
   decorators: [
     (Story) => (
       <QuickGuardProvider userRole="admin">
@@ -21,6 +21,6 @@ type Story = StoryObj<typeof Guard>;
 export const UsingProvider: Story = {
   args: {
     allowedRoles: ["admin"],
-    children: <div>เข้าถึงได้เพราะ Provider บอกว่าเป็น admin</div>,
+    children: <div>Accessible because the Provider role is admin</div>,
   },
 };

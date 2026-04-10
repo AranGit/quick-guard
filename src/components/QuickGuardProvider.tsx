@@ -18,7 +18,7 @@ export const QuickGuardProvider = ({
   );
 };
 
-// สร้าง Hook ภายในเพื่อดึงค่า Context
+// Create an internal Hook to consume the Context
 export const useQuickGuard = () => {
   const context = useContext(AuthContext);
   if (context === undefined) {

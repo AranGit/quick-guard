@@ -2,13 +2,13 @@ import React from "react";
 import { useQuickGuard } from "./QuickGuardProvider";
 
 export interface GuardProps {
-  /** สิทธิ์ที่อนุญาตให้เข้าถึงได้ เช่น ['admin', 'editor'] */
+  /** Allowed roles for access, e.g., ['admin', 'editor'] */
   allowedRoles: string[];
-  /** สิทธิ์ของผู้ใช้ปัจจุบันที่ดึงมาจาก Auth ของแอป */
+  /** The current user's role retrieved from the app's Auth */
   userRole?: string;
-  /** สิ่งที่จะแสดงถ้าผู้ใช้ไม่มีสิทธิ์ */
+  /** Content to display if the user lacks access */
   fallback?: React.ReactNode;
-  /** เนื้อหาภายในที่จะแสดงเมื่อมีสิทธิ์ */
+  /** Internal content to display when access is granted */
   children: React.ReactNode;
 }
 
@@ -20,7 +20,7 @@ export const Guard = ({
 }: GuardProps) => {
   const { userRole: providerRole } = useQuickGuard();
 
-  // ใช้ customRole ถ้ามีการส่งมา ถ้าไม่มีให้ใช้จาก Provider
+  // Use customRole if provided; otherwise, fallback to the Provider's role
   const currentRole = customRole || providerRole;
 
   const hasAccess = currentRole ? allowedRoles.includes(currentRole) : false;

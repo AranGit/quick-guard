@@ -3,15 +3,15 @@ import { render, screen } from "@testing-library/react";
 import { Guard } from "./Guard";
 import { QuickGuardProvider, useQuickGuard } from "./QuickGuardProvider";
 
-// สร้าง Component สมมติเพื่อใช้ทดสอบ Hook
+// Create a mock Component to test the Hook
 const TestComponent = () => {
   const { userRole } = useQuickGuard();
   return <div data-testid="role-display">{userRole}</div>;
 };
 
 describe("QuickGuard System", () => {
-  // เคสที่ 1: ใช้งานถูกต้องผ่าน Provider
-  test("ควรดึงค่า userRole ได้ถูกต้องเมื่ออยู่ภายใต้ QuickGuardProvider", () => {
+  // Case 1: Used correctly via Provider
+  test("should correctly retrieve userRole when wrapped in QuickGuardProvider", () => {
     render(
       <QuickGuardProvider userRole="admin">
         <TestComponent />
@@ -21,9 +21,9 @@ describe("QuickGuard System", () => {
     expect(screen.getByTestId("role-display").textContent).toBe("admin");
   });
 
-  // เคสที่ 2: เคสที่คุณต้องการ (ลืมใส่ Provider)
-  test("ควรโยน Error ออกมาเมื่อใช้งาน useQuickGuard โดยไม่มี Provider หุ้มอยู่", () => {
-    // ซ่อน console.error ชั่วคราวไม่ให้รกหน้าจอขณะรันเทสต์ที่ตั้งใจให้พัง
+  // Case 2: Desired case (forgot to include Provider)
+  test("should throw an Error when useQuickGuard is used without a wrapping Provider", () => {
+    // Temporarily hide console.error to keep the console clean during an expected failure
     const consoleSpy = jest
       .spyOn(console, "error")
       .mockImplementation(() => {});
@@ -35,8 +35,8 @@ describe("QuickGuard System", () => {
     consoleSpy.mockRestore();
   });
 
-  // เคสที่ 3: ทดสอบ Guard Component ร่วมกับ Provider
-  test("Guard ควรแสดงเนื้อหาเมื่อ Role ใน Provider ตรงกับที่อนุญาต", () => {
+  // Case 3: Test Guard Component alongside Provider
+  test("Guard should render content when the Role in the Provider matches allowed roles", () => {
     render(
       <QuickGuardProvider userRole="editor">
         <Guard allowedRoles={["editor", "admin"]}>
